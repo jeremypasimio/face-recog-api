@@ -9,7 +9,7 @@ const knex = require('knex');
 const { handleRegister } = require('./controllers/register');
 const { handleSignIn } = require('./controllers/signin');
 const { handleImage } = require('./controllers/image');
-const { getProfile , incrementImage} = require('./controllers/profile');
+const { getProfile, incrementImage } = require('./controllers/profile');
 
 
 
@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get('/', async (req, res) => {
-
+    res.json('Server reached');
 });
 
 //Route for logging in. Compares hash of entered password to stored hash via bcrypt
