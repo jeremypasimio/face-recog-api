@@ -16,12 +16,20 @@ const { getProfile, incrementImage } = require('./controllers/profile');
 //knex db connection settings for PostgreS
 const db = knex({
     client: 'pg',
+    
+    //comment out for local dev and testing
     connection: {
-        host: '127.0.0.1',
-        user: 'webdev',
-        password: process.env.DB_PASS,
-        database: 'face-recog-users'
+        connectionString: process.env.DATABASE_URL,
+        ssl: true
     }
+    
+    //un-comment for local dev and testing
+    // connection: {
+    //     host: '127.0.0.1',
+    //     user: 'webdev',
+    //     password: process.env.DB_PASS,
+    //     database: 'face-recog-users'
+    // }
 });
 
 app.use(cors());
